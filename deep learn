@@ -1,0 +1,36 @@
+class Person:
+    
+    count = 0    # class variable
+    
+    def __init__(self, name):
+        self.name = name
+        Person.count += 1    # class 변수 count 증가
+        print(self.name + " is initialized")
+        
+    def work(self, company):
+        print(self.name + " is working in " + company) 
+        
+    def sleep(self):
+        print(self.name + " is sleeping")
+    
+    @classmethod
+    def getCount(cls):    # class method
+        return cls.count
+    
+# Person instance 2개 생성
+obj1 = Person("PARK")
+obj2 = Person("KIM") 
+
+# method call
+obj1.work("ABCDEF")
+
+obj2.sleep() 
+
+# 속성에 직접 접근. 기본적으로 파이썬에서는 모두 public
+print("current person object is ", obj1.name, ", ", obj2.name) 
+
+# class method 호출
+print("Person count ==", Person.getCount() )
+
+# class variable direct access
+print(Person.count)
